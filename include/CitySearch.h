@@ -14,9 +14,9 @@ public:
     CitySearch();
 
     void readCityDataFromFile(const std::string& filename);
-    std::multimap<double, City> getCities() const;
+    const std::multimap<double, City>& getCities() const;
 
     std::multimap<double, City> search(const City& city, float radius, int norm);
-    int countNorthernCities(const std::multimap<double, City>& cities, const City& city);
+    int countNorthernCities(const std::multimap<double, City>& cities, const City& city) const;
 
 };

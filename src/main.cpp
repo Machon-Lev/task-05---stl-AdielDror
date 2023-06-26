@@ -1,8 +1,13 @@
 #include <iostream>
 #include <string>
 #include "CitySearch.h"
-#include <vector>
 
+/**
+ * Recursively prints the names of cities stored in a multimap of cities, starting from the given iterator.
+ *
+ * @param cities The multimap of cities to print.
+ * @param it An iterator pointing to the current city in the multimap.
+ */
 void printCity(const std::multimap<double, City>& cities, std::map<double, City>::const_iterator it) {
 	if (it != cities.end()) {
 		std::cout << it->second._name << std::endl;
@@ -10,11 +15,23 @@ void printCity(const std::multimap<double, City>& cities, std::map<double, City>
 	}
 }
 
+/**
+ * Prints the names of all cities stored in a multimap of cities.
+ *
+ * @param cities The multimap of cities to print.
+ */
 void printCities(const std::multimap<double, City>& cities) {
 	std::cout << "City list:" << std::endl;
 	printCity(cities, cities.begin());
 }
 
+/**
+ * Reads an integer input from the user, displaying the provided prompt.
+ *
+ * @param prompt The prompt message to display before reading the input.
+ * @return The integer value entered by the user.
+ * @throws std::runtime_error if the input is invalid or cannot be converted to an integer.
+ */
 int getIntegerInput(const std::string& prompt) {
 	
 		std::cout << prompt;
@@ -35,6 +52,13 @@ int getIntegerInput(const std::string& prompt) {
 	
 }
 
+/**
+ * Reads a float input from the user, displaying the provided prompt.
+ *
+ * @param prompt The prompt message to display before reading the input.
+ * @return The float value entered by the user.
+ * @throws std::runtime_error if the input is invalid or cannot be converted to a float.
+ */
 float getFloatInput(const std::string& prompt) {
 
 	std::cout << prompt;
@@ -65,7 +89,6 @@ int main() {
 		return 1;
 	}
 
-
 	std::string city_name;
 	float radius;
 	int norm;
@@ -86,8 +109,6 @@ int main() {
 				return pair.second._name == city_name;
 			}
 		);
-
-
 
 		if (it != cities.end()) {
 			try {
